@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Todo List</title>
+        <!------ Linking css style sheet --->
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <meta charset="UTF-8">
+    
+    </head>
+
+    <body>
+
+        <h1>Todo List</h1>
+    
+        <div class="tasksection">
+    
+            <form action="#" method="POST">
+                 <input type="text" name="newTask" />
+                 
+                 <button type="submit">Add Task</button>
+                 
+            </form>
+    
+            <ul>
+                 {% for task in tasks %}
+         
+                 <li>{{task}} - <a href="{{url_for( 'delete' , task = task )}}">Delete</a></li>
+         
+                 {% endfor %}
+         
+            </ul>
+    
+       </div>
+    
+    </body>
+
+</html>
